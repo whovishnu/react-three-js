@@ -8,7 +8,6 @@ class Scene extends Component {
     this.state = {
       showContent: false
     };
-
     this.start = this.start.bind(this);
     this.stop = this.stop.bind(this);
     this.animate = this.animate.bind(this);
@@ -91,6 +90,13 @@ class Scene extends Component {
     this.frameId = window.requestAnimationFrame(this.animate);
   }
 
+  handleMouseDown(event) {
+    event.preventDefault();
+
+    //use raycaster
+    const raycaster = new THREE.Raycaster();
+  }
+
   render() {
     return (
       <div
@@ -103,6 +109,7 @@ class Scene extends Component {
         }}
       >
         <div
+          onMouseDown={this.handleMouseDown}
           onMouseMove={({ movementX, movementY }) => {
             if (movementX > 0) {
               this.cube.rotation.y -= 0.11;
