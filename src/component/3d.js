@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import * as THREE from "three.js";
+import React, { Component } from 'react';
+import * as THREE from 'three.js';
+const path = require('path');
 
 class Scene extends Component {
   constructor(props) {
@@ -26,12 +27,37 @@ class Scene extends Component {
 
     // step 2 create randerer
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setClearColor("#ffffff");
+    renderer.setClearColor('#aaa');
     renderer.setSize(width, height);
 
     // create cube box
     const geometry = new THREE.BoxGeometry(22, 22, 22);
-    const cube = new THREE.Mesh(geometry, new THREE.MeshNormalMaterial());
+
+    const texture1 = new THREE.TextureLoader().load('/image/1.png');
+    const texture2 = new THREE.TextureLoader().load('/image/2.png');
+    const texture3 = new THREE.TextureLoader().load('/image/3.png');
+    const texture4 = new THREE.TextureLoader().load('/image/4.png');
+    const texture5 = new THREE.TextureLoader().load('/image/5.png');
+    const texture6 = new THREE.TextureLoader().load('/image/6.png');
+
+    const material1 = new THREE.MeshBasicMaterial({ map: texture1 });
+    const material2 = new THREE.MeshBasicMaterial({ map: texture2 });
+    const material3 = new THREE.MeshBasicMaterial({ map: texture3 });
+    const material4 = new THREE.MeshBasicMaterial({ map: texture4 });
+    const material5 = new THREE.MeshBasicMaterial({ map: texture5 });
+    const material6 = new THREE.MeshBasicMaterial({ map: texture6 });
+
+    const cube = new THREE.Mesh(
+      geometry,
+      //   [
+      //   material1,
+      //   material2,
+      //   material3,
+      //   material4,
+      //   material5,
+      material6
+      // ]
+    );
 
     scene.add(cube);
 
@@ -69,10 +95,10 @@ class Scene extends Component {
     return (
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          margin: "auto",
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          margin: 'auto',
           width: 200
         }}
       >
@@ -94,13 +120,13 @@ class Scene extends Component {
           onClick={() =>
             this.setState({ showContent: !this.state.showContent })
           }
-          className={"bigSize"}
+          className={'bigSize'}
           ref={(mount) => {
             this.mount = mount;
           }}
         />
         {this.state.showContent && (
-          <div className="content">
+          <div className='content'>
             <h1> THREE.js </h1>
             <p>Learing THREE.js in react. create a Cube.</p>
           </div>
