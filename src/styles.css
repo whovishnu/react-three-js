@@ -1,0 +1,26 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.bigSize {
+  width: 210px;
+  height: 200px;
+}
+
+.content {
+  -webkit-animation-name: cssAnimation;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes cssAnimation {
+  from {
+    -webkit-transform: translateY(50px);
+  }
+  to {
+    -webkit-transform: translateY(1px);
+  }
+}

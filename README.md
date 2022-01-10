@@ -1,2 +1,2 @@
-# react-three-js
+# react-redux-tutorial
 Created with CodeSandbox
