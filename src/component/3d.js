@@ -49,14 +49,14 @@ class Scene extends Component {
 
     const cube = new THREE.Mesh(
       geometry,
-      //   [
-      //   material1,
-      //   material2,
-      //   material3,
-      //   material4,
-      //   material5,
-      material6
-      // ]
+      new THREE.MeshFaceMaterial([
+        material1,
+        material2,
+        material3,
+        material4,
+        material5,
+        material6
+      ])
     );
 
     scene.add(cube);
